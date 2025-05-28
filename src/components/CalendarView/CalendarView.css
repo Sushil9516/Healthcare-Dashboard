@@ -1,0 +1,221 @@
+.calendar-view-container {
+
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #282e4a;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.nav-arrow {
+  font-size: 1.8rem;
+  color: #282e4a;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+  text-align: center;
+}
+
+.calendar-day-header {
+  font-weight: 600;
+  color: #282e4a;
+  font-size: 0.9rem;
+}
+
+.calendar-date-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--spacing-sm);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 85px;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-date-cell:hover {
+  background-color: var(--secondary-blue);
+}
+
+.date-number {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.appointment-time {
+  background-color: #3734a9;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* Highlighted Active Dates: e.g. 28, 30 */
+.active-date {
+  background-color: var(--secondary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.appointment-details-section {
+  display: flex;
+
+ 
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.current-appointment-card {
+  background-color: var(--secondary-blue);
+  
+  color: #1a1d41;
+  border-radius: var(--border-radius-md);
+  
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  height: 100%;
+  width: 100%;
+  font-weight: 300;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.15);
+}
+
+.Dentist{
+  background-color:rgba(40, 34, 204, 0.7)
+}
+
+.appointment-icon-wrapper {
+
+ width: 100%;
+margin: 0;
+  
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+
+.appointment-type-icon {
+  font-size: 1.6rem;
+  color: rgb(94, 23, 216);
+}
+
+.appointment-info {
+  flex-grow: 1;
+}
+
+.appointment-type {
+  width: 100%;
+  
+  
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.appointment-doctor {
+  font-size: 0.55rem;
+  color: var(--primary-blue);
+}
+
+.appointment-time-detail {
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .calendar-view-container {
+    padding: var(--spacing-lg);
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .calendar-date-cell {
+    min-height: 65px;
+  }
+
+  .calendar-day-header {
+    font-size: 0.75rem;
+  }
+
+  .date-number {
+    font-size: 1rem;
+  }
+
+  .appointment-time {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
+
+  .current-appointment-card {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-sm);
+  
+  }
+
+  .appointment-time-detail {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .current-appointment-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .appointment-type-icon {
+    font-size: 1.3rem;
+  }
+
+  .appointment-type {
+    font-size: 0.9rem;
+  }
+
+  .appointment-doctor {
+    font-size: 0.75rem;
+  }
+
+  .appointment-time-detail {
+    font-size: 0.85rem;
+  }
+}

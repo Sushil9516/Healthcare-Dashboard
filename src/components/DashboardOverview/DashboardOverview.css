@@ -1,0 +1,24 @@
+.dashboard-overview-container {
+
+ display: flex;
+ background-color: white;
+ padding: var(--spacing-lg);
+  flex-direction: row; /* Default to row layout */
+
+  
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+  .dashboard-overview-container {
+    flex-direction: column; /* Stack anatomy and cards vertically */
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-overview-container {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+}

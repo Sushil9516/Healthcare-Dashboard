@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); /* Example font, adjust as needed */
+
+:root {
+  /* Colors */
+  --primary-blue: #007bff; /* Example, adjust to design */
+  --secondary-blue: #e6f0ff;
+  --text-dark: #333;
+  --text-light: #666;
+  --bg-light: #f8faff;
+  --bg-white: #ffffff;
+  --border-light: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --green-healthy: #28a745; /* Example, adjust to design */
+  --red-issue: #dc3545; /* Example, adjust to design */
+  --calendar-blue: #a8d0ff; /* Specific calendar time highlight */
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border Radius */
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color:#e6effa;
+  color: var(--text-dark);
+  line-height: 1.6;
+  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

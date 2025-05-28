@@ -1,0 +1,84 @@
+.anatomy-section {
+ 
+   /* Allow it to grow within DashboardOverview */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning indicators */
+  padding: var(--spacing-md);
+}
+
+.anatomy-image-wrapper {
+  position: relative;
+  width: 100%; /* Adjust as needed */
+  max-width: 300px; /* Control max size of the image */
+  height: auto;
+
+}
+
+.human-body-image {
+  width: 140%;
+
+  height: auto;
+  display: block;
+ 
+}
+
+.health-indicator {
+  position: absolute;
+  background-color: var(--bg-white);
+  padding: 6px 12px;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 5px var(--shadow-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%); /* Center the text above the position */
+  white-space: nowrap; /* Prevent text wrapping */
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.health-indicator .indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.health-indicator.healthy .indicator-dot {
+  background-color: var(--green-healthy);
+}
+
+.health-indicator.issue .indicator-dot {
+  background-color: var(--red-issue);
+}
+
+/* Specific positioning from mock data will be applied via inline style */
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .anatomy-image-wrapper {
+    max-width: 250px;
+  }
+  .health-indicator {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    gap: 5px;
+  }
+  .health-indicator .indicator-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .anatomy-image-wrapper {
+    max-width: 200px;
+  }
+  .health-indicator {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}

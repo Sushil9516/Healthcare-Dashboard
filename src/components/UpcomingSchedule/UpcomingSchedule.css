@@ -1,0 +1,62 @@
+.upcoming-schedule-container {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.upcoming-schedule-container h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.schedule-day-group {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.appointment-cards-container{
+ 
+  display: flex;
+  justify-content: space-between;
+  
+  gap: var(--spacing-sm);
+}
+
+.schedule-day-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+
+@media (max-width: 768px) {
+  .upcoming-schedule-container {
+    padding: var(--spacing-lg);
+  }
+  .upcoming-schedule-container h3 {
+    font-size: 1rem;
+  }
+  .schedule-day-title {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+.simple-appointment-card {
+  background-color: #f3f4f6; /* soft gray */
+  color: #1f2937; /* Tailwind gray-800 */
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}

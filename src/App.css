@@ -1,0 +1,198 @@
+/* Custom CSS variables (good practice for theming) */
+:root {
+    --bg-light: #f4f7fa;
+    --bg-white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --text-color: #333;
+    --primary-color: #4a90e2; /* Example primary color */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Ensure Inter font is loaded in your HTML/React setup */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+/* Base styles for the app container (Desktop/Large screens) */
+.app-container {
+    border-radius: 24px;
+    height: 100vh;
+    overflow: hidden; /* Changed from auto to hidden to manage inner scroll */
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar 250px, main content takes rest */
+    grid-template-rows: auto 1fr; /* Header row auto height, main row takes rest */
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    background-color: var(--bg-light);
+    transition: grid-template-columns 0.3s ease-in-out; /* Smooth transition for sidebar collapse */
+}
+
+/* Header container */
+.header-container {
+    grid-area: header;
+    padding: var(--spacing-lg);
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    display: flex; /* Use flexbox for internal alignment */
+    align-items: center;
+    justify-content: space-between;
+    border-top-right-radius: 24px; /* Match app-container radius */
+}
+
+/* Sidebar container */
+.sidebar-container {
+    grid-area: sidebar;
+    padding: var(--spacing-lg);
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    border-bottom-left-radius: 24px; /* Match app-container radius */
+    border-top-left-radius: 24px; /* Match app-container radius */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+/* Main content area */
+.main-content-area {
+    grid-area: main;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    overflow-y: auto; /* Enable scrolling for main content */
+    background-color: var(--bg-light);
+    border-bottom-right-radius: 24px; /* Match app-container radius */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.main-content-area::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.main-content-area {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Medium screens (e.g., large tablets, smaller desktops) */
+@media (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 80px 1fr; /* Collapse sidebar to 80px */
+    }
+    .sidebar-container {
+        align-items: center; /* Center sidebar items when collapsed */
+    }
+    /* You might want to hide text labels in the sidebar here */
+    .sidebar-container .sidebar-item .sidebar-text {
+        display: none;
+    }
+}
+
+/* Small screens (e.g., tablets in portrait, large phones) */
+@media (max-width: 768px) {
+    .app-container {
+        /* Stack layout: sidebar on top, then header, then main */
+        grid-template-columns: 1fr; /* Single column */
+        grid-template-rows: auto auto 1fr; /* Sidebar, then header, then main */
+        grid-template-areas:
+            "sidebar"
+            "header"
+            "main";
+        height: auto; /* Allow content to dictate height */
+        min-height: 100vh; /* Ensure it takes at least full viewport height */
+        border-radius: 0; /* Remove overall container radius if it spans full width */
+    }
+
+    .header-container {
+        border-top-right-radius: 0; /* Adjust header radius for stacked layout */
+        border-bottom-left-radius: 24px; /* Add radius to bottom left for header */
+    }
+
+    .sidebar-container {
+        padding: var(--spacing-md);
+        flex-direction: row; /* Arrange sidebar items horizontally */
+        justify-content: space-around; /* Distribute items evenly */
+        border-top-left-radius: 24px; /* Keep top radius */
+        border-top-right-radius: 24px; /* Add top right radius */
+        border-bottom-left-radius: 0; /* Remove bottom left radius */
+        box-shadow: 0 2px 4px var(--shadow-light); /* Keep shadow */
+    }
+
+    /* Show sidebar text again for horizontal menu */
+    .sidebar-container .sidebar-item .sidebar-text {
+        display: block;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+
+    .main-content-area {
+        padding: var(--spacing-lg) var(--spacing-md);
+        border-bottom-right-radius: 24px; /* Keep bottom radius */
+        border-bottom-left-radius: 24px; /* Add bottom left radius */
+    }
+}
+
+/* Extra small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column; /* Stack header items (e.g., title and search/user) */
+        align-items: flex-start; /* Align header items to the start */
+        padding: var(--spacing-md);
+    }
+    .header-container h1 {
+        font-size: 1.5rem; /* Adjust header title size */
+        margin-bottom: var(--spacing-sm);
+    }
+    .sidebar-container {
+        padding: var(--spacing-sm); /* Reduce sidebar padding */
+    }
+    .main-content-area {
+        padding: var(--spacing-md) var(--spacing-sm); /* Reduce main content padding */
+    }
+}
+
+/* Utility classes (if needed in your React components) */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+.sidebar-item:hover {
+    background-color: var(--bg-light);
+}
+.sidebar-item svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+}
+.sidebar-item .sidebar-text {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
